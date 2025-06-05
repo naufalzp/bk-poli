@@ -23,7 +23,7 @@
 
                         <form class="mt-6" action="{{ route('dokter.obat.update', $obat->id) }}" method="POST">
                             @csrf
-                            @method('PATCH')
+                            @method('PUT')
 
                             <div class="mb-3 form-group">
                                 <label for="editNamaObatInput">Nama</label>

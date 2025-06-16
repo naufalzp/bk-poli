@@ -8,6 +8,11 @@ class JadwalPeriksa extends Model
 {
     protected $guarded = ['id'];
 
+    public function getFullJadwalAttribute()
+    {
+        return $this->hari . ', ' . $this->jam_mulai . '-' . $this->jam_selesai;
+    }
+
     public function dokter()
     {
         return $this->belongsTo(User::class, 'id_dokter');

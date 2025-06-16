@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dokter\JadwalPeriksaController;
+use App\Http\Controllers\Dokter\JanjiPeriksaController;
 use App\Http\Controllers\Dokter\ObatController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,4 +29,11 @@ Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () 
         Route::patch('/{id}', [JadwalPeriksaController::class, 'updateStatus'])->name('updateStatus');
         Route::delete('/{id}', [JadwalPeriksaController::class, 'destroy'])->name('destroy');
     });
+
+    Route::prefix('janji-periksa')->name('dokter.janji-periksa.')->group(function () {
+        Route::get('/', [JanjiPeriksaController::class, 'index'])->name('index');
+        Route::get('/{id}/periksa', [JanjiPeriksaController::class, 'show'])->name('show');
+        Route::post('/{id}/periksa', [JanjiPeriksaController::class, 'store'])->name('store');
+    });
+
 });

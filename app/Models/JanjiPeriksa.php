@@ -20,6 +20,6 @@ class JanjiPeriksa extends Model
 
     public function periksa()
     {
-        return $this->belongsTo(Periksa::class, 'id_janji_periksa');
+        return $this->hasOne(Periksa::class, 'id_janji_periksa');
     }
 }

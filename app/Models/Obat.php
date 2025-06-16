@@ -12,4 +12,9 @@ class Obat extends Model
     {
         return $this->hasMany(DetailPeriksa::class, 'id_obat');
     }
+
+    public function periksas()
+    {
+        return $this->belongsToMany(Periksa::class, 'detail_periksas', 'id_obat', 'id_periksa');
+    }
 }

@@ -27,7 +27,7 @@
                                             <div class="d-flex justify-content-between">
                                                 <span class="text-gray-700">Poliklinik</span>
                                                 <span
-                                                    class="font-medium">{{ $janjiPeriksa->jadwalPeriksa->dokter->poli }}</span>
+                                                    class="font-medium">{{ $janjiPeriksa->jadwalPeriksa->dokter->poli->nama }}</span>
                                             </div>
                                         </div>
                                         <div class="px-4 py-3 mb-2 border-0 rounded list-group-item bg-light">

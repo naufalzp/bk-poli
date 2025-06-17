@@ -14,6 +14,7 @@
               <h2 class="text-lg font-medium text-gray-900">
                 {{ __('Detail Janji') }}
               </h2>
+              <p class="text-sm text-gray-600">Informasi pasien dan keluhan</p>
             </header>
 
             <div class="form-group">
@@ -36,6 +37,7 @@
               <h2 class="text-lg font-medium text-gray-900">
                 {{ __('Form Periksa') }}
               </h2>
+              <p class="text-sm text-gray-600">Tambah hasil pemeriksaan dan obat yang diberikan</p>
             </header>
 
             <form action="{{ route('dokter.janji-periksa.store', $janjiPeriksa->id) }}" method="POST">

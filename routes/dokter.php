@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dokter\JadwalPeriksaController;
 use App\Http\Controllers\Dokter\JanjiPeriksaController;
 use App\Http\Controllers\Dokter\ObatController;
+use App\Http\Controllers\Dokter\RiwayatPeriksaController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () {
@@ -34,6 +35,12 @@ Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () 
         Route::get('/', [JanjiPeriksaController::class, 'index'])->name('index');
         Route::get('/{id}/periksa', [JanjiPeriksaController::class, 'show'])->name('show');
         Route::post('/{id}/periksa', [JanjiPeriksaController::class, 'store'])->name('store');
+    });
+    
+    Route::prefix('riwayat-periksa')->name('dokter.riwayat-periksa.')->group(function () {
+        Route::get('/', [RiwayatPeriksaController::class, 'index'])->name('index');
+        Route::get('/{id}/edit', [RiwayatPeriksaController::class, 'edit'])->name('edit');
+        Route::put('/{id}/edit', [RiwayatPeriksaController::class, 'update'])->name('update');
     });
 
 });

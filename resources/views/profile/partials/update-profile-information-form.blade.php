@@ -46,6 +46,24 @@
                 </div>
             @endif
         </div>
+        @if ($user->role == 'dokter')
+        <div>
+            <x-input-label for="id_poli" :value="('Poli')" />
+            <select
+                class="rounded form-control"
+                id="id_poli"
+                name="id_poli"
+            >
+                <option value="" {{ old('id_poli', $user->id_poli ?? '') ? '' : 'selected' }} disabled>Pilih Poli</option>
+                @foreach ($polis as $poli)
+                    <option value="{{ $poli->id }}" {{ old('id_poli', $user->id_poli ?? '') == $poli->id ? 'selected' : '' }}>{{ $poli->nama }}</option>
+                @endforeach
+            </select>
+            @error('id_poli')
+                <span class="text-sm text-red-600">{{ $message }}</span>
+            @enderror
+        </div>
+       @endif
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

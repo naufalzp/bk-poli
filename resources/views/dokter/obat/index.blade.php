@@ -15,6 +15,7 @@
             </h2>
             <div class="flex-col items-center justify-center text-center">
               <a href="{{ route('dokter.obat.create') }}" class="btn btn-primary">Tambah Obat</a>
+              <a href="{{ route('dokter.obat.deleted') }}" class="btn btn-outline-secondary">Sampah</a>
 
               @if (session('status') === 'obat-created')
                 <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"

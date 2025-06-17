@@ -26,7 +26,7 @@ class User extends Authenticatable
         'no_ktp',
         'no_hp',
         'no_rm',
-        'poli',
+        'id_poli',
     ];
 
     /**
@@ -55,5 +55,10 @@ class User extends Authenticatable
     public function jadwalPeriksas()
     {
         return $this->hasMany(JadwalPeriksa::class, 'id_dokter');
+    }
+
+    public function poli()
+    {
+        return $this->belongsTo(Poli::class, 'id_poli');
     }
 }

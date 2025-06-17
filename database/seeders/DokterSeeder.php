@@ -23,7 +23,7 @@ public function run(): void
                 'alamat' => 'Jl. Pahlawan No. 123, Jakarta Selatan',
                 'no_ktp' => '3175062505800001',
                 'no_hp' => '081234567890',
-                'poli' => 'Penyakit Dalam',
+                'id_poli' => 3,
             ],
             [
                 'nama' => 'Dr. Siti Rahayu, Sp.A',
@@ -33,7 +33,7 @@ public function run(): void
                 'alamat' => 'Jl. Anggrek No. 45, Jakarta Pusat',
                 'no_ktp' => '3175064610790002',
                 'no_hp' => '081234567891',
-                'poli' => 'Anak',
+                'id_poli' => 2,
             ],
             [
                 'nama' => 'Dr. Ahmad Wijaya, Sp.OG',
@@ -43,7 +43,7 @@ public function run(): void
                 'alamat' => 'Jl. Melati No. 78, Jakarta Barat',
                 'no_ktp' => '3175061505780003',
                 'no_hp' => '081234567892',
-                'poli' => 'Kebidanan dan Kandungan',
+                'id_poli' => 2,
             ],
             [
                 'nama' => 'Dr. Rina Putri, Sp.M',
@@ -53,7 +53,7 @@ public function run(): void
                 'alamat' => 'Jl. Dahlia No. 32, Jakarta Timur',
                 'no_ktp' => '3175062708850004',
                 'no_hp' => '081234567893',
-                'poli' => 'Mata',
+                'id_poli' => 2,
             ],
             [
                 'nama' => 'Dr. Doni Pratama, Sp.THT',
@@ -63,7 +63,7 @@ public function run(): void
                 'alamat' => 'Jl. Kenanga No. 56, Jakarta Utara',
                 'no_ktp' => '3175061002820005',
                 'no_hp' => '081234567894',
-                'poli' => 'THT',
+                'id_poli' => 1,
             ],
         ];
 

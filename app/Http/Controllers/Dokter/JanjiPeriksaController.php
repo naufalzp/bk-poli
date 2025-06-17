@@ -71,7 +71,7 @@ class JanjiPeriksaController extends Controller
             'biaya_periksa' => $validated['biaya_periksa'],
         ]);
 
-        $periksa->obat()->attach($validated['obat']);
+        $periksa->obats()->attach($validated['obat']);
 
         return redirect()->route('dokter.janji-periksa.index')
             ->with('success', 'Pemeriksaan berhasil disimpan. Pasien ' . $janjiPeriksa->pasien->nama . ' telah diperiksa.');

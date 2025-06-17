@@ -19,6 +19,9 @@ Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () 
         Route::get('/{id}/edit', [ObatController::class, 'edit'])->name('edit');
         Route::put('/{id}', [ObatController::class, 'update'])->name('update');
         Route::delete('/{id}', [ObatController::class, 'destroy'])->name('destroy');
+        Route::get('/deleted', [ObatController::class, 'deleted'])->name('deleted');
+        Route::post('/{id}/restore', [ObatController::class, 'restore'])->name('restore');
+        Route::post('/restore-all', [ObatController::class, 'restoreAll'])->name('restoreAll');
     });
 
     Route::prefix('jadwal-periksa')->name('dokter.jadwal-periksa.')->group(function () {

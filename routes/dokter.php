@@ -18,10 +18,11 @@ Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () 
         Route::post('/', [ObatController::class, 'store'])->name('store');
         Route::get('/{id}/edit', [ObatController::class, 'edit'])->name('edit');
         Route::put('/{id}', [ObatController::class, 'update'])->name('update');
-        Route::delete('/{id}', [ObatController::class, 'destroy'])->name('destroy');
-        Route::get('/deleted', [ObatController::class, 'deleted'])->name('deleted');
+        Route::delete('/{id}', [ObatController::class, 'destroy'])->name('destroy');        Route::get('/deleted', [ObatController::class, 'deleted'])->name('deleted');
         Route::post('/{id}/restore', [ObatController::class, 'restore'])->name('restore');
         Route::post('/restore-all', [ObatController::class, 'restoreAll'])->name('restoreAll');
+        Route::delete('/{id}/force-delete', [ObatController::class, 'forceDelete'])->name('forceDelete');
+        Route::delete('/force-delete-all', [ObatController::class, 'forceDeleteAll'])->name('forceDeleteAll');
     });
 
     Route::prefix('jadwal-periksa')->name('dokter.jadwal-periksa.')->group(function () {

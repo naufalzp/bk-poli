@@ -22,7 +22,7 @@ Route::middleware(['auth', 'role:dokter'])->prefix('dokter')->group(function () 
         Route::post('/{id}/restore', [ObatController::class, 'restore'])->name('restore');
         Route::post('/restore-all', [ObatController::class, 'restoreAll'])->name('restoreAll');
         Route::delete('/{id}/force-delete', [ObatController::class, 'forceDelete'])->name('forceDelete');
-        Route::delete('/force-delete-all', [ObatController::class, 'forceDeleteAll'])->name('forceDeleteAll');
+        Route::delete('/deleted/force-delete-all', [ObatController::class, 'forceDeleteAll'])->name('forceDeleteAll');
     });
 
     Route::prefix('jadwal-periksa')->name('dokter.jadwal-periksa.')->group(function () {

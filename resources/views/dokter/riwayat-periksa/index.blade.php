@@ -21,6 +21,29 @@
                 </div>
               @endif
             </header>
+
+            <!-- Search Form -->
+            <div class="mb-4 mt-4">
+              <form method="GET" action="{{ route('dokter.riwayat-periksa.index') }}" class="d-flex gap-2">
+                <div class="flex-grow-1 position-relative">
+                  <input 
+                    type="text" 
+                    name="search" 
+                    value="{{ $search ?? '' }}"
+                    placeholder="Cari berdasarkan nama pasien, No. RM, keluhan..."
+                    class="form-control ps-5"
+                  >
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-search me-1"></i>Cari
+                </button>
+                @if($search ?? '')
+                  <a href="{{ route('dokter.riwayat-periksa.index') }}" class="btn btn-secondary">
+                    <i class="fas fa-times me-1"></i>Reset
+                  </a>
+                @endif
+              </form>
+            </div>
           @endif
 
           @if (!$jadwalPeriksa)

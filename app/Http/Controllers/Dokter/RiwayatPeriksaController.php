@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 
 class RiwayatPeriksaController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $jadwalPeriksa = JadwalPeriksa::where('id_dokter', Auth::user()->id)
             ->where('status', true)
@@ -22,19 +22,37 @@ class RiwayatPeriksaController extends Controller
             return view('dokter.riwayat-periksa.index', [
                 'jadwalPeriksa' => null,
                 'periksas' => collect(),
+                'search' => '',
             ]);
         }
+
+        $search = $request->get('search', '');
 
         $periksas = Periksa::with(['janjiPeriksa.pasien'])
             ->whereHas('janjiPeriksa', function ($query) use ($jadwalPeriksa) {
                 $query->where('id_jadwal_periksa', $jadwalPeriksa->id);
             })
+            ->when($search, function ($query) use ($search) {
+                $query->where(function ($subQuery) use ($search) {
+                    $subQuery->where('catatan', 'like', '%' . $search . '%')
+                             ->orWhere('tgl_periksa', 'like', '%' . $search . '%')
+                             ->orWhereHas('janjiPeriksa.pasien', function ($pasienQuery) use ($search) {
+                                 $pasienQuery->where('nama', 'like', '%' . $search . '%')
+                                            ->orWhere('no_rm', 'like', '%' . $search . '%');
+                             })
+                             ->orWhereHas('janjiPeriksa', function ($janjiQuery) use ($search) {
+                                 $janjiQuery->where('keluhan', 'like', '%' . $search . '%');
+                             });
+                });
+            })
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(10)
+            ->appends(['search' => $search]);
 
         return view('dokter.riwayat-periksa.index', compact([
             'jadwalPeriksa', 
-            'periksas', 
+            'periksas',
+            'search',
         ]));
     }
 

@@ -15,6 +15,26 @@
                         </h2>
                     </header>
 
+            <!-- <div class="mb-4 mt-4">
+              <form method="GET" action="{{ route('pasien.riwayat-periksa.index') }}" class="d-flex gap-2">
+                <div class="flex-grow-1 position-relative">
+                  <select name="kategori" id="kategori">
+                    <option value="" disabled selected>Pilih Kategori</option>
+                   <option value="sudah">Sudah</option>
+                     <option value="belum">Belum</option>
+                  </select>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-search me-1"></i>Cari
+                </button>
+                @if($search ?? '')
+                  <a href="{{ route('pasien.riwayat-periksa.index') }}" class="btn btn-secondary">
+                    <i class="fas fa-times me-1"></i>Reset
+                  </a>
+                @endif
+              </form>
+            </div> -->
+
                     {{-- Table --}}
                     <table class="table mt-6 overflow-hidden rounded table-hover">
                         <thead class="thead-light">

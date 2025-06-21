@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class RiwayatPeriksaController extends Controller   
 {
-    public function index()
+    public function index(Request $request)
     {
         $no_rm = Auth::user()->no_rm;
+
         $janjiPeriksas = JanjiPeriksa::where('id_pasien', Auth::user()->id)
             ->with(['jadwalPeriksa.dokter.poli', 'periksa'])
             ->orderBy('created_at', 'desc')
+            ->whereHas('periksa')
             ->paginate(10);
 
         return view('pasien.riwayat-periksa.index')->with([
